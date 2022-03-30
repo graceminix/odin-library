@@ -12,15 +12,16 @@ function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(added);
 }
 
-addBookToLibrary('The Hobbit', 'JRR', 253, 'yes');
-addBookToLibrary('Jane Eyre', 'Charlotte Bronte', 293, 'yes')
-addBookToLibrary('Harry Potter', 'JK Rowling', 695, 'yes');
+// addBookToLibrary('The Hobbit', 'JRR', 253, 'yes');
+// addBookToLibrary('Jane Eyre', 'Charlotte Bronte', 293, 'yes')
+// addBookToLibrary('Harry Potter', 'JK Rowling', 695, 'yes');
 
 let headers = ['Title', 'Author', 'Pages', 'Read?'];
 let myTable = document.querySelector('#table');
 
 //Creating table
 function tableCreate(library) {
+    myTable.innerHTML = '';
     const table = document.createElement('table');
     let headerRow = document.createElement('tr');
     headers.forEach(headerText => {
@@ -35,8 +36,8 @@ function tableCreate(library) {
     library.forEach(book => {
         let row = document.createElement('tr');
         Object.values(book).forEach(text => {
-            let cell = 
-            document.createElement('td');
+            let cell =
+                document.createElement('td');
             let textNode = document.createTextNode(text);
             cell.appendChild(textNode);
             row.appendChild(cell);
@@ -48,6 +49,13 @@ function tableCreate(library) {
 }
 
 tableCreate(myLibrary);
+
+// addBookToLibrary('Hi', 'test', 231, 'no');
+
+tableCreate(myLibrary);
+
+
+
 
 
 
