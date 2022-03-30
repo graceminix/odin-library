@@ -1,4 +1,6 @@
 let myLibrary = [];
+let headers = ['Title', 'Author', 'Pages', 'Read?'];
+let myTable = document.querySelector('#table');
 
 function Book(title, author, pages, read) {
     this.title = title
@@ -10,14 +12,13 @@ function Book(title, author, pages, read) {
 function addBookToLibrary(title, author, pages, read) {
     const added = new Book(title, author, pages, read);
     myLibrary.push(added);
+    tableCreate(myLibrary);
 }
 
-addBookToLibrary('The Hobbit', 'JRR', 253, 'yes');
-addBookToLibrary('Jane Eyre', 'Charlotte Bronte', 293, 'yes')
-addBookToLibrary('Harry Potter', 'JK Rowling', 695, 'yes');
+addBookToLibrary('The Hobbit', 'J. R. R. Tolkien', 304, 'no');
+addBookToLibrary('Jane Eyre', 'Charlotte Bronte', 592, 'yes')
 
-let headers = ['Title', 'Author', 'Pages', 'Read?'];
-let myTable = document.querySelector('#table');
+
 
 //Creating table
 function tableCreate(library) {
@@ -47,10 +48,5 @@ function tableCreate(library) {
 
     myTable.appendChild(table);
 }
-
-
-
-
-
 
 

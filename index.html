@@ -9,6 +9,30 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div id="table"></div>
+    <div class="container">
+        <div class="addbook">
+            <div class="addheader">Add a Book!</div>
+            <br>
+            <form>
+                <label for="title"><b>Title</b></label><br>
+                <input type="text" placeholder="e.g. Prep" name="title" required><br>
+                <label for="author"><b>Author</b></label><br>
+                <input type="text" placeholder="e.g. Curtis Sittenfeld" name="author" required><br>
+                <label for="pages"><b>Number of Pages</b></label><br>
+                <input type="number" placeholder="448" id="pages" name="pages" min="0" max="10000" required><br>
+                <label for="read"><b>Read?</b></label><br>
+                <input type="radio" id="yes" name="read" value="yes" >
+                <label for="yes">Yes</label>
+                <input type="radio" id="no" name="read" value="no" required>
+                <label for="no">No</label><br>
+                <input type="submit" value="Add Book!">
+
+            </form>
+        </div>       
+        <div class="header">
+            My  Library
+        </div>
+        <div id="table"></div>
+    </div>
 </body>
 </html>

@@ -1,4 +1,50 @@
-table, th, td {
-    border: 1px solid black;
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap');
+
+table {
+    width: 100%;
     padding: 10px;
 }
+
+td {
+    border: 1px solid black;
+}
+
+.header, .addheader {
+    font-size: xx-large;
+    font-family: 'Oleo Script Swash Caps', cursive;
+    padding-top: 20px;
+}
+
+.header {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    background-color: lightblue;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+    grid-template-columns: 1fr 3fr;
+    height: calc(100vh - 20px);
+    text-align: center;
+    justify-content: center;
+    background-color: #c5c9d4
+}
+
+th {
+    font-size: larger;
+}
+
+.addbook {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    padding-top: 20px;
+    background-color: #5671b0;
+
+}
+
+input {
+    margin-bottom: 10px;
+}
+
+
