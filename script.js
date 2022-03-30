@@ -12,9 +12,9 @@ function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(added);
 }
 
-// addBookToLibrary('The Hobbit', 'JRR', 253, 'yes');
-// addBookToLibrary('Jane Eyre', 'Charlotte Bronte', 293, 'yes')
-// addBookToLibrary('Harry Potter', 'JK Rowling', 695, 'yes');
+addBookToLibrary('The Hobbit', 'JRR', 253, 'yes');
+addBookToLibrary('Jane Eyre', 'Charlotte Bronte', 293, 'yes')
+addBookToLibrary('Harry Potter', 'JK Rowling', 695, 'yes');
 
 let headers = ['Title', 'Author', 'Pages', 'Read?'];
 let myTable = document.querySelector('#table');
@@ -48,11 +48,6 @@ function tableCreate(library) {
     myTable.appendChild(table);
 }
 
-tableCreate(myLibrary);
-
-// addBookToLibrary('Hi', 'test', 231, 'no');
-
-tableCreate(myLibrary);
 
 
 
