@@ -47,7 +47,7 @@ function tableCreate(library) {
         deleter.innerHTML = "Delete Book";
         deleter.type = "button";
         deleter.name = "delete";
-        deleter.addEventListener("click", deleteBook);
+        deleter.addEventListener("click", deleteBook(this));
         row.appendChild(deleter);
         table.appendChild(row);
     });
@@ -64,7 +64,6 @@ function newBook() {
     addBookToLibrary(title, author, pages, read);
 }
 
-function deleteBook() {
-    
+function deleteBook(o) {
 }
 
