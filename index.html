@@ -13,7 +13,7 @@
         <div class="addbook">
             <div class="addheader">Add a Book!</div>
             <br>
-            <form>
+            <form name="form" onsubmit="return false">
                 <label for="title"><b>Title</b></label><br>
                 <input type="text" placeholder="e.g. Prep" name="title" required><br>
                 <label for="author"><b>Author</b></label><br>
@@ -25,7 +25,7 @@
                 <label for="yes">Yes</label>
                 <input type="radio" id="no" name="read" value="no" required>
                 <label for="no">No</label><br>
-                <input type="submit" value="Add Book!">
+                <input type="reset" onclick="newBook()" value="Add Book!">
 
             </form>
         </div>       

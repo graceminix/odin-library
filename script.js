@@ -43,10 +43,28 @@ function tableCreate(library) {
             cell.appendChild(textNode);
             row.appendChild(cell);
         });
+        let deleter = document.createElement("button");
+        deleter.innerHTML = "Delete Book";
+        deleter.type = "button";
+        deleter.name = "delete";
+        deleter.addEventListener("click", deleteBook);
+        row.appendChild(deleter);
         table.appendChild(row);
     });
 
     myTable.appendChild(table);
 }
 
+var form = document.forms['form'];
+function newBook() {
+    var title = document.form.title.value;
+    var author = document.form.author.value;
+    var pages = document.form.pages.value;
+    var read = document.form.read.value;
+    addBookToLibrary(title, author, pages, read);
+}
+
+function deleteBook() {
+    
+}
 
