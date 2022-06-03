@@ -16,7 +16,8 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 addBookToLibrary('The Hobbit', 'J. R. R. Tolkien', 304, 'no');
-addBookToLibrary('Jane Eyre', 'Charlotte Bronte', 592, 'yes')
+addBookToLibrary('Jane Eyre', 'Charlotte Bronte', 592, 'yes');
+addBookToLibrary('Prep', 'Curtis Sittenfeld', 448, 'yes');
 
 
 
@@ -34,6 +35,8 @@ function tableCreate(library) {
 
     table.appendChild(headerRow);
 
+    let i = 0;
+
     library.forEach(book => {
         let row = document.createElement('tr');
         Object.values(book).forEach(text => {
@@ -47,9 +50,20 @@ function tableCreate(library) {
         deleter.innerHTML = "Delete Book";
         deleter.type = "button";
         deleter.name = "delete";
-        deleter.addEventListener("click", deleteBook(this));
+        deleter.addEventListener("click", function() {
+            deleteBook(this.dataset.test);
+        }, false);
+        let reader = document.createElement("button");
+        reader.innerHTML = "Toggle Read";
+        reader.type = "button";
+        reader.name = "change";
+        reader.dataset.test = i;
+        deleter.dataset.test = i;
+        reader.addEventListener("click", changeStatus(i));
+        row.appendChild(reader);
         row.appendChild(deleter);
         table.appendChild(row);
+        i += 1;
     });
 
     myTable.appendChild(table);
@@ -64,6 +78,12 @@ function newBook() {
     addBookToLibrary(title, author, pages, read);
 }
 
-function deleteBook(o) {
+// Function that deletes books from library and recreates table.
+function deleteBook(i) {
+    myLibrary.splice(i, 1);
+    tableCreate(myLibrary);
+    
 }
 
+function changeStatus(book) {
+}
