@@ -2,6 +2,7 @@ let myLibrary = [];
 let headers = ['Title', 'Author', 'Pages', 'Read?'];
 let myTable = document.querySelector('#table');
 
+// Define basic Book
 function Book(title, author, pages, read) {
     this.title = title
     this.author = author
@@ -9,13 +10,14 @@ function Book(title, author, pages, read) {
     this.read = read
 }
 
+// Adds book to library, creates table
 function addBookToLibrary(title, author, pages, read) {
     const added = new Book(title, author, pages, read);
     myLibrary.push(added);
     tableCreate(myLibrary);
 }
 
-addBookToLibrary('The Hobbit', 'J. R. R. Tolkien', 304, 'no');
+// Starting books.
 addBookToLibrary('Jane Eyre', 'Charlotte Bronte', 592, 'yes');
 addBookToLibrary('Prep', 'Curtis Sittenfeld', 448, 'yes');
 
@@ -37,6 +39,7 @@ function tableCreate(library) {
 
     let i = 0;
 
+// Creating row per book in library
     library.forEach(book => {
         let row = document.createElement('tr');
         Object.values(book).forEach(text => {
@@ -59,7 +62,9 @@ function tableCreate(library) {
         reader.name = "change";
         reader.dataset.test = i;
         deleter.dataset.test = i;
-        reader.addEventListener("click", changeStatus(i));
+        reader.addEventListener("click", function() {
+            changeStatus(this.dataset.test);
+        }, false);
         row.appendChild(reader);
         row.appendChild(deleter);
         table.appendChild(row);
@@ -85,5 +90,19 @@ function deleteBook(i) {
     
 }
 
-function changeStatus(book) {
+// Prototype for changing read status
+Book.prototype.change = function () {
+    if (this.read == 'no') {
+        this.read = 'yes'
+    } else {
+        this.read = 'no'
+    }
 }
+
+// Function to change status and recreate table
+function changeStatus(i) {
+    myLibrary[i].change();
+    tableCreate(myLibrary);
+
+}
+
